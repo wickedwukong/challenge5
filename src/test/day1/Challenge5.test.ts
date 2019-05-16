@@ -1,4 +1,4 @@
-import {getGridStatus} from "../src/Challenge5";
+import {getGridStatus} from "../../main/day1/Challenge5";
 
 describe("getGridStatus", () => {
     it("says red win", () => {
