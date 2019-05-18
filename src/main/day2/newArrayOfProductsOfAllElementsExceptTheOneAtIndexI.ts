@@ -11,8 +11,28 @@ Follow-up: what if you can't use division?
 */
 
 export function productsOfAllElementsExceptTheOneAtIndexIUsingDivision(numbers: number[]): number[] {
-    if (numbers.length <= 2) { return []; }
+    if (numbers.length <= 2) {
+        return [];
+    }
 
     const totalProduct = numbers.reduce((acc, i) => acc * i);
     return numbers.map((i) => totalProduct / i);
+}
+
+export function productsOfAllElementsExceptTheOneAtIndexIWithoutDivision(numbers: number[]): number[] {
+    if (numbers.length <= 2) {
+        return [];
+    }
+
+    return numbers.map((item, index) => {
+        const productOfElementsBeforeIndex = numbers.slice(0, index).reduce(
+            (accumulator, currentValue) => accumulator * currentValue
+            , 1);
+
+        const productOfElementsAfterIndex = numbers.slice(index + 1).reduce(
+            (accumulator, currentValue) => accumulator * currentValue
+            , 1);
+
+        return productOfElementsBeforeIndex * productOfElementsAfterIndex;
+    });
 }
