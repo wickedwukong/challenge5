@@ -1,15 +1,15 @@
-export function cons<T>(a: T, b: T) {
+export function cons<A, B, C>(a: A, b: B) {
 
-    function pair(f: (a: T, b: T) => T): T {
+    function pair(f: (a: A, b: B) => C): C {
         return f(a, b);
     }
 
     return pair;
 }
 
-export function car<T>(pair: (f: (a: T, b: T) => T) => T): T {
-    return pair((a: T) => a);
+export function car<A, B>(pair: (f: (a: A, b: B) => A) => A): A {
+    return pair((a: A) => a);
 }
-export function cdr<T>(pair: (f: (a: T, b: T) => T) => T): T {
-    return pair((_: T, b: T) => b);
+export function cdr<A, B>(pair: (f: (a: A, b: B) => B) => B): B {
+    return pair((_: A, b: B) => b);
 }
