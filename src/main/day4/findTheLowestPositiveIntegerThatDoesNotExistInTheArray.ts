@@ -12,15 +12,13 @@ The input [1, 2, 0] should give 3.
 You can modify the input array in-place.
 */
 
-import * as _ from "lodash";
-
 export function findTheLowestPositiveIntegerThatDoesNotExistInTheArray(numbers: number[]): number {
     if (!numbers.some((i) => i > 0)) {
         return 1;
     }
 
     function sortedPositiveValuesInList() {
-        return _.cloneDeep(numbers).splice(0).filter((i) => i > 0).sort();
+        return numbers.slice(0).filter((i) => i > 0).sort();
     }
 
     function lowestPositiveValueInList() {
