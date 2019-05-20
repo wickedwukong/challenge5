@@ -34,7 +34,7 @@ export function findTheLowestPositiveIntegerThatDoesNotExistInTheArray(numbers: 
         const valueList = [];
 
         for (let i = (lowestPositiveValueInList() - 1);
-             i <= (highestPositiveValueInList() + 1) - lowestPositiveValueInList(); i++) {
+             i <= (highestPositiveValueInList() + 1) - lowestPositiveValueInList() + 1; i++) {
             valueList.push(i);
         }
         return valueList;
